@@ -1,0 +1,26 @@
+{
+  "name": "yeomju-online",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "dev": "node scripts/dev.js",
+    "dev:client": "vite --host 0.0.0.0",
+    "dev:server": "node --watch server/index.js",
+    "build": "vite build",
+    "start": "node server/index.js",
+    "test": "node --test server/*.test.js",
+    "test:e2e": "node scripts/smoke.mjs"
+  },
+  "dependencies": {
+    "three": "^0.180.0",
+    "ws": "^8.18.3"
+  },
+  "devDependencies": {
+    "vite": "^7.1.7",
+    "@playwright/test": "^1.56.0"
+  }
+}

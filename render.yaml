@@ -1,0 +1,21 @@
+# Render Blueprint: one authoritative process, with persistent SQLite storage.
+services:
+  - type: web
+    name: yeomju-online
+    runtime: node
+    plan: starter
+    numInstances: 1
+    buildCommand: npm ci --include=dev && npm run build && npm prune --omit=dev
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: 24.19.0
+      - key: NODE_ENV
+        value: production
+      - key: DATA_DIR
+        value: /var/data
+    disk:
+      name: yeomju-data
+      mountPath: /var/data
+      sizeGB: 1

@@ -1,0 +1,420 @@
+export const SPAWN = { x: 0, z: 25 };
+export const WORLD_SIZE = 148;
+export const CHANNEL_CAPACITY = 108;
+export const GRADES = {
+  common: { name: "소박", color: "#a4ad91", rank: 1 },
+  uncommon: { name: "정갈", color: "#74a780", rank: 2 },
+  rare: { name: "귀한", color: "#6c94bd", rank: 3 },
+  epic: { name: "진귀", color: "#aa83bd", rank: 4 },
+  legendary: { name: "명품", color: "#c29a4e", rank: 5 },
+};
+export const CHANNELS = [
+  {
+    id: 1,
+    name: "청연사",
+    theme: "대나무 숲",
+    subtitle: "바람이 머무는 산사",
+    color: "#7c9d76",
+    favored: ["bamboo", "hemp"],
+    dropPools: {
+      beadIds: ["bamboo", "cypress", "juniper"],
+      cordIds: ["hemp", "ramie"],
+    },
+  },
+  {
+    id: 2,
+    name: "송림사",
+    theme: "솔바람 길",
+    subtitle: "솔향을 따라 걷는 길",
+    color: "#567e65",
+    favored: ["pine", "cotton"],
+    dropPools: {
+      beadIds: ["pine", "jujube", "juniper"],
+      cordIds: ["cotton", "hemp", "ramie"],
+    },
+  },
+  {
+    id: 3,
+    name: "연화사",
+    theme: "연꽃 연못",
+    subtitle: "물결 위로 피어나는 마음",
+    color: "#b88c9a",
+    favored: ["lotus", "silk"],
+    dropPools: {
+      beadIds: ["pine", "lotus", "cypress", "bodhi"],
+      cordIds: ["hemp", "silk"],
+    },
+  },
+  {
+    id: 4,
+    name: "백운사",
+    theme: "구름 마루",
+    subtitle: "구름에 닿은 고요",
+    color: "#9caeba",
+    favored: ["cypress", "cotton"],
+    dropPools: {
+      beadIds: ["cypress", "pine", "sandalwood"],
+      cordIds: ["cotton", "braided"],
+    },
+  },
+  {
+    id: 5,
+    name: "단풍사",
+    theme: "붉은 단풍",
+    subtitle: "붉은 잎 사이의 산책",
+    color: "#b37b57",
+    favored: ["jujube", "ramie"],
+    dropPools: {
+      beadIds: ["bamboo", "jujube", "sandalwood"],
+      cordIds: ["hemp", "ramie", "silk"],
+    },
+  },
+  {
+    id: 6,
+    name: "월정사",
+    theme: "달빛 뜰",
+    subtitle: "은은한 달빛 아래",
+    color: "#8b8fad",
+    favored: ["sandalwood", "silk"],
+    dropPools: {
+      beadIds: ["pine", "sandalwood", "bodhi"],
+      cordIds: ["cotton", "silk", "vajra"],
+    },
+  },
+  {
+    id: 7,
+    name: "향림사",
+    theme: "향나무 숲",
+    subtitle: "오래 남는 나무의 향",
+    color: "#8f9b68",
+    favored: ["juniper", "ramie"],
+    dropPools: {
+      beadIds: ["pine", "juniper", "sandalwood"],
+      cordIds: ["hemp", "ramie", "braided"],
+    },
+  },
+  {
+    id: 8,
+    name: "설산사",
+    theme: "눈꽃 산길",
+    subtitle: "흰 눈이 덮인 수행길",
+    color: "#a9bdc2",
+    favored: ["ebony", "braided"],
+    dropPools: {
+      beadIds: ["pine", "cypress", "ebony"],
+      cordIds: ["cotton", "braided"],
+    },
+  },
+  {
+    id: 9,
+    name: "금강사",
+    theme: "금강 바위",
+    subtitle: "단단한 마음이 모이는 곳",
+    color: "#a99c73",
+    favored: ["lignum", "braided"],
+    dropPools: {
+      beadIds: ["pine", "jujube", "ebony", "lignum"],
+      cordIds: ["hemp", "braided", "vajra"],
+    },
+  },
+  {
+    id: 10,
+    name: "보리사",
+    theme: "보리수 뜰",
+    subtitle: "작은 씨앗에서 시작되는 인연",
+    color: "#a8aa70",
+    favored: ["bodhi", "vajra"],
+    dropPools: {
+      beadIds: ["bamboo", "lotus", "bodhi"],
+      cordIds: ["cotton", "silk", "vajra"],
+    },
+  },
+];
+export const HALLS = [
+  {
+    id: "main",
+    name: "대웅전",
+    x: 0,
+    z: -20,
+    radius: 22,
+    description: "마음을 모아 108배를 올려요",
+  },
+  {
+    id: "bamboo",
+    name: "관음전",
+    x: -35,
+    z: -5,
+    radius: 18,
+    description: "대나무 숲에 머무는 고요",
+  },
+  {
+    id: "lotus",
+    name: "지장전",
+    x: 35,
+    z: -30,
+    radius: 19,
+    description: "연못 곁에서 함께하는 수행",
+  },
+];
+export const NODES = [
+  { id: "bamboo-east", name: "대숲의 선물", x: 24, z: 20, kind: "bamboo" },
+  { id: "bamboo-west", name: "대숲의 선물", x: -26, z: 24, kind: "bamboo" },
+  { id: "wood-west", name: "숲의 작은 인연", x: -48, z: 15, kind: "wood" },
+  { id: "lotus-east", name: "연못의 선물", x: 43, z: 4, kind: "lotus" },
+  { id: "wood-north", name: "오래된 나무 아래", x: -22, z: -38, kind: "wood" },
+  { id: "stone-east", name: "돌탑의 선물", x: 50, z: -42, kind: "stone" },
+  { id: "wood-south", name: "솔향이 담긴 상자", x: 9, z: 49, kind: "wood" },
+  { id: "lotus-west", name: "이슬 맺힌 연잎", x: -50, z: -35, kind: "lotus" },
+  { id: "stone-south", name: "마당의 작은 돌탑", x: -35, z: 48, kind: "stone" },
+  {
+    id: "bamboo-north",
+    name: "바람이 놓고 간 선물",
+    x: 11,
+    z: -54,
+    kind: "bamboo",
+  },
+];
+const bead = (
+  id,
+  name,
+  grade,
+  material,
+  strength,
+  description,
+  stats,
+  color,
+) => ({
+  id,
+  name,
+  kind: "bead",
+  grade,
+  material,
+  strength,
+  description,
+  stats,
+  color,
+});
+const cord = (
+  id,
+  name,
+  grade,
+  material,
+  strength,
+  slots,
+  description,
+  stats,
+  color,
+) => ({
+  id,
+  name,
+  kind: "cord",
+  grade,
+  material,
+  strength,
+  slots,
+  description,
+  stats,
+  color,
+});
+export const ITEMS = {
+  bamboo: bead(
+    "bamboo",
+    "대나무 염주알",
+    "common",
+    "대나무",
+    2,
+    "가볍고 담백한 대나무에 첫 마음을 담았습니다.",
+    { move: 0.015, bow: 0.01 },
+    "#c3ad6b",
+  ),
+  pine: bead(
+    "pine",
+    "소나무 염주알",
+    "common",
+    "소나무",
+    3,
+    "은은한 솔향이 마음을 차분하게 해줍니다.",
+    { drop: 0.01, bow: 0.015 },
+    "#aa8054",
+  ),
+  lotus: bead(
+    "lotus",
+    "연씨 염주알",
+    "uncommon",
+    "연꽃 씨앗",
+    4,
+    "단단하게 여문 연씨. 고운 물결의 기억을 품었습니다.",
+    { drop: 0.025, gather: 0.015 },
+    "#93765a",
+  ),
+  cypress: bead(
+    "cypress",
+    "편백나무 염주알",
+    "uncommon",
+    "편백나무",
+    4,
+    "결이 곧고 향이 맑은 편백나무를 다듬었습니다.",
+    { bow: 0.025, move: 0.02 },
+    "#c6a079",
+  ),
+  jujube: bead(
+    "jujube",
+    "대추나무 염주알",
+    "rare",
+    "대추나무",
+    6,
+    "치밀하고 단단한 붉은 나뭇결에 세월이 스며 있습니다.",
+    { drop: 0.03, bow: 0.025 },
+    "#9c5d42",
+  ),
+  juniper: bead(
+    "juniper",
+    "향나무 염주알",
+    "rare",
+    "향나무",
+    6,
+    "긴 세월 자란 향나무의 깊은 향을 간직했습니다.",
+    { gather: 0.04, move: 0.025 },
+    "#916b51",
+  ),
+  sandalwood: bead(
+    "sandalwood",
+    "백단향 염주알",
+    "epic",
+    "백단향",
+    7,
+    "천천히 자라 얻기 어려운 백단향. 잔향이 오래 머뭅니다.",
+    { drop: 0.045, bow: 0.04 },
+    "#c5a26d",
+  ),
+  ebony: bead(
+    "ebony",
+    "흑단 염주알",
+    "epic",
+    "흑단",
+    9,
+    "매우 치밀한 검은 나뭇결을 정성껏 연마했습니다.",
+    { bow: 0.05, move: 0.03 },
+    "#4c4440",
+  ),
+  lignum: bead(
+    "lignum",
+    "유창목 염주알",
+    "legendary",
+    "유창목",
+    10,
+    "묵직하고 단단한 희귀 목재. 깊은 푸른빛을 띱니다.",
+    { drop: 0.055, bow: 0.045, gather: 0.025 },
+    "#67735c",
+  ),
+  bodhi: bead(
+    "bodhi",
+    "천년 보리수 염주알",
+    "legendary",
+    "오래된 보리수 씨앗",
+    8,
+    "오랜 세월의 보리수 씨앗을 골라 깎은 귀한 염주알입니다.",
+    { drop: 0.06, move: 0.025, bow: 0.04 },
+    "#9e7846",
+  ),
+  hemp: cord(
+    "hemp",
+    "삼베 염주띠",
+    "common",
+    "삼베",
+    3,
+    8,
+    "첫 염주를 엮는 소박하고 튼튼한 삼베 띠입니다.",
+    { move: 0.02 },
+    "#a99b76",
+  ),
+  cotton: cord(
+    "cotton",
+    "면사 염주띠",
+    "uncommon",
+    "꼰 면사",
+    4,
+    12,
+    "여러 가닥의 면사를 가지런히 꼬아 만들었습니다.",
+    { bow: 0.03 },
+    "#c9bfaa",
+  ),
+  ramie: cord(
+    "ramie",
+    "모시 합사 염주띠",
+    "rare",
+    "모시 합사",
+    6,
+    16,
+    "질긴 모시 섬유를 겹쳐 엮어 오래 버팁니다.",
+    { gather: 0.04, move: 0.02 },
+    "#8b9a76",
+  ),
+  silk: cord(
+    "silk",
+    "명주 합사 염주띠",
+    "rare",
+    "명주 합사",
+    6,
+    18,
+    "고운 명주실을 여러 겹 합쳐 단단하게 엮었습니다.",
+    { drop: 0.04, bow: 0.03 },
+    "#b99a79",
+  ),
+  braided: cord(
+    "braided",
+    "팔합 견사 염주띠",
+    "epic",
+    "여덟 겹 견사",
+    8,
+    24,
+    "여덟 겹의 견사를 치밀하게 엮은 귀한 띠입니다.",
+    { move: 0.04, bow: 0.045 },
+    "#7d8d6e",
+  ),
+  vajra: cord(
+    "vajra",
+    "금강 합사 염주띠",
+    "legendary",
+    "열두 겹 견사 합사",
+    10,
+    36,
+    "열두 겹의 실을 정성껏 엮은 가장 단단한 염주띠입니다.",
+    { drop: 0.06, bow: 0.05, move: 0.025 },
+    "#b49a58",
+  ),
+};
+for (const item of Object.values(ITEMS)) item.type = item.kind;
+for (const channel of CHANNELS) {
+  channel.description = channel.subtitle;
+  channel.featuredItems = channel.favored;
+}
+export const ITEM_LIST = Object.values(ITEMS);
+export const gradeLabel = (grade) => GRADES[grade]?.name ?? grade;
+export const itemName = (id) => ITEMS[id]?.name ?? id;
+export function calculateStats(equipped = { cordId: "hemp", beads: [] }) {
+  const selectedCord =
+    ITEMS[equipped.cordId]?.kind === "cord"
+      ? ITEMS[equipped.cordId]
+      : ITEMS.hemp;
+  const stats = { move: 0, bow: 0, drop: 0, gather: 0 };
+  for (const item of [
+    selectedCord,
+    ...(equipped.beads ?? [])
+      .slice(0, selectedCord.slots)
+      .map((id) => ITEMS[id]),
+  ]) {
+    if (!item) continue;
+    for (const key of Object.keys(stats)) stats[key] += item.stats[key] ?? 0;
+  }
+  return {
+    moveSpeed: 10 * (1 + Math.min(stats.move, 0.65)),
+    bowDurationMs: Math.round(3000 / (1 + Math.min(stats.bow, 1.5))),
+    dropRate: Math.min(0.8, 0.3 + stats.drop),
+    gatherBonus: Math.min(0.8, stats.gather),
+    slots: selectedCord.slots,
+    moveBonus: Math.min(stats.move, 0.65),
+    bowBonus: Math.min(stats.bow, 1.5),
+    dropBonus: Math.min(stats.drop, 0.5),
+  };
+}
